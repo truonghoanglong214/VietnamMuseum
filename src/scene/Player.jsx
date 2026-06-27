@@ -14,10 +14,14 @@ function inWalk(x, z) {
   return false
 }
 
-export default function Player({ controlsRef, onLockChange }) {
+export default function Player({ controlsRef, onLockChange, nearestInteractable, onInteract }) {
   const { camera } = useThree()
   const keys = useRef({})
   const locked = useRef(false)
+  const nearestRef = useRef(nearestInteractable)
+  nearestRef.current = nearestInteractable
+  const onInteractRef = useRef(onInteract)
+  onInteractRef.current = onInteract
 
   // vị trí xuất phát
   useEffect(() => {
@@ -27,7 +31,15 @@ export default function Player({ controlsRef, onLockChange }) {
 
   // phím
   useEffect(() => {
-    const down = (e) => (keys.current[e.code] = true)
+    const down = (e) => {
+      keys.current[e.code] = true
+      if ((e.code === 'KeyE' || e.key === 'e' || e.key === 'E') && nearestRef.current) {
+        if (document.pointerLockElement != null) {
+          document.exitPointerLock?.()
+        }
+        onInteractRef.current?.(nearestRef.current)
+      }
+    }
     const up = (e) => (keys.current[e.code] = false)
     window.addEventListener('keydown', down)
     window.addEventListener('keyup', up)
@@ -36,6 +48,7 @@ export default function Player({ controlsRef, onLockChange }) {
       window.removeEventListener('keyup', up)
     }
   }, [])
+
 
   // theo dõi trạng thái khóa chuột
   useEffect(() => {

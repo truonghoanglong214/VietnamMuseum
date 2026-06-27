@@ -6,7 +6,7 @@ const STONE = { color: '#d8d0c0', roughness: 0.9, metalness: 0 }
 const GOLD_POST = { color: '#b58a3a', roughness: 0.4, metalness: 0.85 }
 
 // ── Băng ghế gỗ ──────────────────────────────────────────────
-export function BenchProp({ position = [0, 0, 0], rotation = [0, 0, 0] }) {
+export function BenchProp({ position = [0, 0, 0], rotation = [0, Math.PI, 0] }) {
   return (
     <group position={position} rotation={rotation}>
       {/* Mặt ngồi */}

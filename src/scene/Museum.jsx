@@ -5,6 +5,7 @@ import { rooms, exhibits } from '../museumData.js'
 import Room from './Room.jsx'
 import Frame from './Frame.jsx'
 import Player from './Player.jsx'
+import InteractSystem from './InteractSystem.jsx'
 import DecoTree from './DecoTree.jsx'
 import {
   BenchProp, PedestalProp, RopeBarrierProp,
@@ -15,7 +16,7 @@ import WanderNPC, { PointNPC } from './NPC.jsx'
 import {
   TrongDongModel, ReceptionDeskModel, SocratesModel,
   SpartanHelmetModel, SpartanShieldModel, AncientScrollModel,
-  GreekColumnModel, GoddessOfJusticeModel, CrownModel,
+  GreekColumnModel, GoddessOfJusticeModel, CrownModel, OpenBookModel,
   HammerSickleModel, TorchModel, WheatFieldModel,
   GearModel, BrownBookModel, GlobeModel,
   OnePillarPagodaModel, LotusFlowerModel
@@ -66,9 +67,10 @@ function Fixture({ position, intensity = 20, roomHeight = 5 }) {
   )
 }
 
-export default function Museum({ controlsRef, onSelect, onLockChange }) {
+export default function Museum({ controlsRef, onSelect, onLockChange, onNearestChange, nearestInteractable, onInteract }) {
   return (
     <>
+      <InteractSystem onNearestChange={onNearestChange} />
       <color attach="background" args={['#0c0a07']} />
       {/* Fog nhẹ — tầm nhìn ~80m để còn thấy vài phòng phía trước */}
       <fog attach="fog" args={['#0c0a07', 16, 95]} />
@@ -161,8 +163,8 @@ export default function Museum({ controlsRef, onSelect, onLockChange }) {
       {/* ── LOBBY ── */}
       <DecoTree position={[-5, 0, -3.5]} type="palm" />
       <DecoTree position={[ 5, 0, -3.5]} type="palm" />
-      <BenchProp position={[-2.5, 0, 3]} rotation={[0, 0, 0]} />
-      <BenchProp position={[ 2.5, 0, 3]} rotation={[0, 0, 0]} />
+      <BenchProp position={[-2.5, 0, 3]} rotation={[0, Math.PI, 0]} />
+      <BenchProp position={[ 2.5, 0, 3]} rotation={[0, Math.PI, 0]} />
       <InfoStandProp position={[4, 0, 0]} rotation={[0, Math.PI, 0]} text="Kính chào quý khách đến tham quan" />
       <mesh position={[2, 0.005, 0]} receiveShadow>
         <boxGeometry args={[4, 0.01, 2]} />
@@ -206,7 +208,9 @@ export default function Museum({ controlsRef, onSelect, onLockChange }) {
       <PedestalProp position={[36, 0, 0]} height={0.6} color="#8a8078" title="Tượng Nữ Thần Công Lý">
         <GoddessOfJusticeModel position={[0, 0.655, 0]} />
       </PedestalProp>
-      <PedestalProp position={[39, 0, 0]} height={0.75} color="#d4c9a0" title="Bảng Quyền Con Người" />
+      <PedestalProp position={[39, 0, 0]} height={0.75} color="#d4c9a0" title="Bảng Quyền Con Người">
+        <OpenBookModel position={[0, 0.805, 0]} />
+      </PedestalProp>
       <RopeBarrierProp posts={[[31.5, -1.3],[31.5, 1.3],[40.5, 1.3],[40.5, -1.3],[31.5, -1.3]]} />
       <WanderNPC startPos={[33, 0, 2]} id={4} exhibitPos={[36, 2.8, -4.88]} />
       <WanderNPC startPos={[39, 0, 2]} id={5} exhibitPos={[36, 2.8, -4.88]} />
@@ -262,19 +266,25 @@ export default function Museum({ controlsRef, onSelect, onLockChange }) {
       <DecoTree position={[95, 0, 3.5]} type="palm" />
       <BenchProp position={[87, 0, 3]} />
       <BenchProp position={[93, 0, 3]} />
-      <SuggestionBoxProp position={[90, 0, 2.5]} />
-      <mesh position={[90, 4.3, 0]}>
-        <boxGeometry args={[7, 0.2, 0.025]} />
-        <meshStandardMaterial color="#c4a84a" roughness={0.7} metalness={0.2} />
-      </mesh>
       {/* GLTF Assets Phòng Kết */}
-      <OnePillarPagodaModel position={[90, 0, -0.5]} scale={0.0055} />
-      <LotusFlowerModel position={[88.5, 0, -1]} scale={0.6} />
-      <LotusFlowerModel position={[91.5, 0, -1]} scale={0.6} />
+      <PedestalProp position={[90, 0, 0]} height={0.8} color="#e8dfc0" title="Chùa Một Cột">
+        <OnePillarPagodaModel position={[0, 0.855, 0]} targetSize={0.75} />
+      </PedestalProp>
+      <PedestalProp position={[88.5, 0, 0]} height={0.65} color="#e8dfc0" title="Hoa Sen Việt Nam">
+        <LotusFlowerModel position={[0, 0.705, 0]} targetSize={0.45} />
+      </PedestalProp>
+      <PedestalProp position={[91.5, 0, 0]} height={0.65} color="#e8dfc0" title="Hoa Sen Việt Nam">
+        <LotusFlowerModel position={[0, 0.705, 0]} targetSize={0.45} />
+      </PedestalProp>
       <PointNPC position={[93, 0, -2]} lookAt={[95.88, 2.6, 0]} id={11} />
       <WanderNPC startPos={[88, 0, 2]} id={12} exhibitPos={[95.88, 2.6, 0]} />
 
-      <Player controlsRef={controlsRef} onLockChange={onLockChange} />
+      <Player
+        controlsRef={controlsRef}
+        onLockChange={onLockChange}
+        nearestInteractable={nearestInteractable}
+        onInteract={onInteract}
+      />
 
       {/* Hậu kỳ: đổ bóng góc, nở sáng nhẹ, làm tối viền */}
       <EffectComposer enableNormalPass multisampling={0}>

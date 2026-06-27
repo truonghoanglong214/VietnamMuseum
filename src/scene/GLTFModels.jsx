@@ -100,6 +100,10 @@ export function CrownModel(props) {
   return <GLTFAsset url="/Assets/Crown.glb" targetSize={0.35} {...props} />
 }
 
+export function OpenBookModel(props) {
+  return <GLTFAsset url="/Assets/Open Book.glb" targetSize={0.45} {...props} />
+}
+
 // Phòng 3
 export function HammerSickleModel(props) {
   return <GLTFAsset url="/Assets/hammer__sickle.glb" targetSize={0.6} {...props} />

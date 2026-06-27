@@ -3,6 +3,8 @@ import { Canvas } from '@react-three/fiber'
 import { Loader } from '@react-three/drei'
 import Museum from './scene/Museum.jsx'
 import InfoPanel from './ui/InfoPanel.jsx'
+import InteractHint from './ui/InteractHint.jsx'
+import ExhibitPopup from './ui/ExhibitPopup.jsx'
 import { spawn } from './museumData.js'
 
 export default function App() {
@@ -10,6 +12,8 @@ export default function App() {
   const [started, setStarted] = useState(false)
   const [locked, setLocked] = useState(false)
   const [selected, setSelected] = useState(null)
+  const [nearestInteractable, setNearestInteractable] = useState(null)
+  const [viewingExhibit, setViewingExhibit] = useState(null)
 
   const lock = useCallback(() => {
     setStarted(true)
@@ -26,7 +30,17 @@ export default function App() {
     controlsRef.current?.lock?.()
   }, [])
 
-  const showIntro = !locked && !selected
+  const onInteract = useCallback((item) => {
+    setViewingExhibit(item)
+    document.exitPointerLock?.()
+  }, [])
+
+  const closeExhibitPopup = useCallback(() => {
+    setViewingExhibit(null)
+    controlsRef.current?.lock?.()
+  }, [])
+
+  const showIntro = !locked && !selected && !viewingExhibit
 
   return (
     <>
@@ -37,11 +51,22 @@ export default function App() {
         onCreated={({ gl }) => { gl.toneMappingExposure = 1.1 }}
       >
         <Suspense fallback={null}>
-          <Museum controlsRef={controlsRef} onSelect={onSelect} onLockChange={setLocked} />
+          <Museum
+            controlsRef={controlsRef}
+            onSelect={onSelect}
+            onLockChange={setLocked}
+            onNearestChange={setNearestInteractable}
+            nearestInteractable={nearestInteractable}
+            onInteract={onInteract}
+          />
         </Suspense>
       </Canvas>
 
-      {locked && <div className="crosshair" />}
+      {locked && !viewingExhibit && <div className="crosshair" />}
+
+      {locked && nearestInteractable && !viewingExhibit && (
+        <InteractHint item={nearestInteractable} />
+      )}
 
       {showIntro && (
         <div className="intro" onClick={lock}>
@@ -52,12 +77,13 @@ export default function App() {
             <p className="intro__lead">
               {started
                 ? 'Nhấn để quay lại không gian trưng bày.'
-                : 'Hành trình qua 4 phòng — từ cội nguồn DEMOKRATOS đến nền Dân chủ Xã hội chủ nghĩa Việt Nam. Nhấn vào tranh để đọc chú thích.'}
+                : 'Hành trình qua 4 phòng — từ cội nguồn DEMOKRATOS đến nền Dân chủ Xã hội chủ nghĩa Việt Nam. Tiến lại gần hiện vật và nhấn phím E để xem chi tiết.'}
             </p>
             <span className="intro__cta">{started ? 'Tiếp tục tham quan' : 'Bước vào bảo tàng'}</span>
             <p className="intro__hint">
               Di chuyển <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>
               {' '}· Nhìn quanh bằng <kbd>chuột</kbd>
+              {' '}· Tương tác <kbd>E</kbd>
               {' '}· Thoát <kbd>Esc</kbd>
             </p>
           </div>
@@ -65,6 +91,10 @@ export default function App() {
       )}
 
       <InfoPanel exhibit={selected} onClose={onClose} />
+
+      {viewingExhibit && (
+        <ExhibitPopup item={viewingExhibit} onClose={closeExhibitPopup} />
+      )}
 
       <Loader
         containerStyles={{ background: '#100c08' }}
