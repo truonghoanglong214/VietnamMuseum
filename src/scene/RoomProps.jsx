@@ -30,8 +30,56 @@ export function BenchProp({ position = [0, 0, 0], rotation = [0, 0, 0] }) {
   )
 }
 
+function PedestalPlaque({ title, yPos }) {
+  const tex = useMemo(() => {
+    if (!title) return null
+    const W = 512, H = 128
+    const c = document.createElement('canvas')
+    c.width = W; c.height = H
+    const ctx = c.getContext('2d')
+    
+    // Nền đồng thau vàng kim bảo tàng
+    const grad = ctx.createLinearGradient(0, 0, W, H)
+    grad.addColorStop(0, '#d4af37')
+    grad.addColorStop(0.5, '#fff2a3')
+    grad.addColorStop(1, '#aa820a')
+    ctx.fillStyle = grad
+    ctx.fillRect(0, 0, W, H)
+    
+    // Viền sang trọng
+    ctx.strokeStyle = '#2a1a08'
+    ctx.lineWidth = 8
+    ctx.strokeRect(8, 8, W - 16, H - 16)
+
+    ctx.strokeStyle = '#8b0000'
+    ctx.lineWidth = 3
+    ctx.strokeRect(16, 16, W - 32, H - 32)
+    
+    // Chữ tiêu đề
+    ctx.fillStyle = '#1c0e04'
+    ctx.font = "bold 28px 'Merriweather', 'Be Vietnam Pro', 'Segoe UI', sans-serif"
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+    ctx.fillText(title, W / 2, H / 2)
+    
+    const t = new THREE.CanvasTexture(c)
+    t.colorSpace = THREE.SRGBColorSpace
+    t.anisotropy = 8
+    return t
+  }, [title])
+
+  if (!tex) return null
+
+  return (
+    <mesh position={[0, yPos, 0.355]} castShadow>
+      <boxGeometry args={[0.52, 0.13, 0.012]} />
+      <meshStandardMaterial map={tex} roughness={0.35} metalness={0.6} />
+    </mesh>
+  )
+}
+
 // ── Bệ trưng bày ─────────────────────────────────────────────
-export function PedestalProp({ position = [0, 0, 0], height = 0.8, color = '#e0dbd0', children }) {
+export function PedestalProp({ position = [0, 0, 0], height = 0.8, color = '#e0dbd0', title = null, children }) {
   return (
     <group position={position}>
       {/* Thân bệ */}
@@ -44,6 +92,8 @@ export function PedestalProp({ position = [0, 0, 0], height = 0.8, color = '#e0d
         <boxGeometry args={[0.76, 0.05, 0.76]} />
         <meshStandardMaterial color={color} roughness={0.6} metalness={0.1} />
       </mesh>
+      {/* Tấm bảng tên hiện vật */}
+      {title && <PedestalPlaque title={title} yPos={height * 0.65} />}
       {children}
     </group>
   )

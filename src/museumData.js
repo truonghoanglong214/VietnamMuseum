@@ -1,4 +1,4 @@
-﻿// =============================================================
+// =============================================================
 //  museumData.js  —  BẢO TÀNG LỊCH SỬ VÀ BẢN CHẤT DÂN CHỦ
 //  Cấu trúc theo nội dung môn MLN131:
 //   Lobby → Phòng 1 (Cội Nguồn) → Phòng 2 (Nấc Thang)
@@ -221,5 +221,27 @@ export const exhibits = [
     title: '"Nước ta là nước dân chủ, địa vị cao nhất là dân, vì dân là chủ"',
     meta: 'Hồ Chí Minh · 1953',
     body: 'Câu nói bất hủ của Chủ tịch Hồ Chí Minh — kim chỉ nam xuyên suốt nền Dân chủ Xã hội chủ nghĩa Việt Nam.',
+  },
+  // Phòng 3 (Bổ sung) — tường Nam, x=54, z=4.88
+  {
+    type: 'image',
+    position: [54, 2.8, 4.88],
+    rotation: [0, Math.PI, 0],
+    size: [3.6, 2.6],
+    frame: 'gold',
+    title: 'Tàu Tuần Dương Rạng Đông (Aurora)',
+    meta: 'Chiến hạm biểu tượng · Khai hỏa 1917',
+    body: 'Tiếng súng đại bác từ tàu tuần dương Rạng Đông vào đêm 7/11/1917 tại Saint Petersburg đã phát lệnh tấn công Cung điện Mùa Đông, mở ra kỷ nguyên mới cho nền dân chủ công-nông.',
+  },
+  // Phòng Kết (Bổ sung) — tường Bắc, x=90, z=-4.88
+  {
+    type: 'image',
+    position: [90, 2.8, -4.88],
+    rotation: [0, 0, 0],
+    size: [3.2, 3.8],
+    frame: 'gold',
+    title: 'Chân dung Chủ tịch Hồ Chí Minh',
+    meta: 'Lãnh tụ vĩ đại · Khai sinh nước VNDCCH 1945',
+    body: 'Chủ tịch Hồ Chí Minh đã vận dụng sáng tạo chủ nghĩa Mác-Lênin vào thực tiễn Việt Nam, khẳng định "Bao nhiêu lợi ích đều vì dân. Bao nhiêu quyền hạn đều của dân".',
   },
 ]
