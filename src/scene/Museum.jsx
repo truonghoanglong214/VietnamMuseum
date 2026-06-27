@@ -226,10 +226,11 @@ export default function Museum({ controlsRef, onSelect, onLockChange, onNearestC
       </PedestalProp>
       <BenchProp position={[51, 0, 3]} />
       <BenchProp position={[57, 0, 3]} />
-      {/* GLTF Assets Phòng 3 */}
-      <TorchModel position={[51, 0, -3.2]} />
-      <TorchModel position={[57, 0, -3.2]} />
-      <PointNPC position={[54, 0, -2]} lookAt={[54, 2.8, -4.88]} id={6} />
+      {/* GLTF Assets Phòng 3 — 3 Ngọn đuốc Cách mạng */}
+      <TorchModel position={[49.5, 0, -3.2]} />
+      <TorchModel position={[54, 0, -3.2]} />
+      <TorchModel position={[58.5, 0, -3.2]} />
+      <PointNPC position={[54, 0, -1.5]} lookAt={[54, 2.8, -4.88]} id={6} />
       <WanderNPC startPos={[51, 0, 2]} id={7} exhibitPos={[54, 2.8, -4.88]} />
 
       {/* ── PHÒNG 4 ── */}
