@@ -1,0 +1,214 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0c0a07;
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+  color: #f0e6cf;
+}
+
+/* ---- Crosshair ---- */
+.crosshair {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  z-index: 10;
+}
+.crosshair::before,
+.crosshair::after {
+  content: '';
+  position: absolute;
+  background: rgba(255,255,255,0.75);
+  border-radius: 1px;
+}
+.crosshair::before {
+  width: 2px; height: 100%;
+  left: 50%; transform: translateX(-50%);
+}
+.crosshair::after {
+  width: 100%; height: 2px;
+  top: 50%; transform: translateY(-50%);
+}
+
+/* ---- Intro screen ---- */
+.intro {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(12, 10, 7, 0.88);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  z-index: 20;
+}
+.intro__inner {
+  text-align: center;
+  max-width: 520px;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.sun-mark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #c9a24b 0%, #7a5a1e 60%, transparent 70%);
+  box-shadow: 0 0 0 2px #c9a24b44;
+  margin-bottom: 4px;
+}
+
+/* Ngôi sao vàng trên nền đỏ — biểu trưng bảo tàng */
+.star-emblem {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #8B2020;
+  box-shadow: 0 0 0 2px #8B202066, 0 0 24px #8B202044;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+.star-emblem::before {
+  content: '★';
+  font-size: 32px;
+  color: #f5d060;
+  line-height: 1;
+  text-shadow: 0 0 8px #c9a24b88;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.intro__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #c9a24b;
+  font-weight: 500;
+}
+.intro__title {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #f5ecd5;
+  line-height: 1.15;
+}
+.intro__lead {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #c8b89a;
+  max-width: 380px;
+}
+.intro__cta {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 10px 32px;
+  border: 1.5px solid #c9a24b;
+  border-radius: 4px;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c9a24b;
+  font-weight: 500;
+  transition: background 0.18s, color 0.18s;
+}
+.intro:hover .intro__cta {
+  background: #c9a24b;
+  color: #0c0a07;
+}
+.intro__hint {
+  font-size: 12px;
+  color: #8a7860;
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+.intro__hint kbd {
+  display: inline-block;
+  padding: 1px 6px;
+  border: 1px solid #5a4e3a;
+  border-radius: 3px;
+  font-size: 11px;
+  color: #c8b89a;
+  margin: 0 2px;
+  font-family: inherit;
+}
+
+/* ---- Info panel ---- */
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 340px;
+  height: 100%;
+  background: rgba(18, 14, 10, 0.97);
+  border-left: 1px solid #3a2e1e;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 30;
+}
+.panel--open {
+  transform: translateX(0);
+}
+.panel__kicker {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c9a24b;
+  font-weight: 500;
+}
+.panel__title {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #f5ecd5;
+}
+.panel__meta {
+  font-size: 13px;
+  color: #8a7860;
+  letter-spacing: 0.04em;
+}
+.panel__rule {
+  height: 1px;
+  background: #3a2e1e;
+  margin: 4px 0;
+}
+.panel__body {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #c8b89a;
+  flex: 1;
+}
+.panel__close {
+  margin-top: 16px;
+  padding: 10px 0;
+  border: 1.5px solid #3a2e1e;
+  border-radius: 4px;
+  background: transparent;
+  color: #c9a24b;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, background 0.15s;
+}
+.panel__close:hover {
+  border-color: #c9a24b;
+  background: rgba(201, 162, 75, 0.08);
+}
