@@ -14,11 +14,11 @@ import {
 } from './RoomProps.jsx'
 import WanderNPC, { PointNPC } from './NPC.jsx'
 import {
-  TrongDongModel, ReceptionDeskModel, SocratesModel,
+  TrongDongModel, ReceptionDeskModel, TribeStaffModel, SocratesModel,
   SpartanHelmetModel, TuongBacModel, AncientScrollModel,
-  GreekColumnModel, GoddessOfJusticeModel, CrownModel, OpenBookModel,
+  GreekColumnModel, GoddessOfJusticeModel, RoundChainModel, CrownModel, OpenBookModel, MoneyStacksModel,
   HammerSickleModel, TorchModel, WheatFieldModel,
-  GearModel, BrownBookModel, GlobeModel,
+  GearModel, GrowthCoinsModel, BrownBookModel, GlobeModel,
   OnePillarPagodaModel, LotusFlowerModel
 } from './GLTFModels.jsx'
 
@@ -180,8 +180,8 @@ export default function Museum({ controlsRef, onSelect, onLockChange, onNearestC
       <DecoTree position={[14.5, 0, -3]} type="shrub" />
       <ColumnProp position={[14, 0, 2]} height={3.0} />
       <ColumnProp position={[22, 0, 2]} height={3.0} />
-      <PedestalProp position={[18, 0, 1.5]} height={0.9} color="#e8dfc0" title="Tượng Socrates" plaqueSide="back">
-        <SocratesModel position={[0, 0.955, 0]} rotation={[0, -Math.PI / 2, 0]} />
+      <PedestalProp position={[18, 0, 1.5]} height={0.9} color="#e8dfc0" title="Gậy Thù Trưởng (Dân Chủ Nguyên Thủy)" plaqueSide="back">
+        <TribeStaffModel position={[0, 0.955, 0]} rotation={[0, Math.PI, 0]} />
       </PedestalProp>
       <BenchProp position={[18, 0, 3.5]} />
       {/* GLTF Assets Phòng 1 — Đặt các hiện vật lên bệ trưng bày */}
@@ -202,14 +202,14 @@ export default function Museum({ controlsRef, onSelect, onLockChange, onNearestC
       {/* ── PHÒNG 2 ── */}
       <DecoTree position={[33, 0, 3.5]} type="shrub" />
       <DecoTree position={[39, 0, 3.5]} type="shrub" />
-      <PedestalProp position={[33, 0, 0]} height={0.9} color="#f0ede0" title="Vương Miện Phong Kiến">
+      <PedestalProp position={[33, 0, 0]} height={0.65} color="#4a443f" title="Xiềng Xích Nô Lệ">
+        <RoundChainModel position={[0, 0.705, 0]} />
+      </PedestalProp>
+      <PedestalProp position={[36, 0, 0]} height={0.9} color="#f0ede0" title="Vương Miện Phong Kiến">
         <CrownModel position={[0, 0.955, 0]} />
       </PedestalProp>
-      <PedestalProp position={[36, 0, 0]} height={0.6} color="#8a8078" title="Tượng Nữ Thần Công Lý">
-        <GoddessOfJusticeModel position={[0, 0.655, 0]} />
-      </PedestalProp>
-      <PedestalProp position={[39, 0, 0]} height={0.75} color="#d4c9a0" title="Bảng Quyền Con Người">
-        <OpenBookModel position={[0, 0.805, 0]} />
+      <PedestalProp position={[39, 0, 0]} height={0.75} color="#d4c9a0" title="Cập Tiền Tư Sản">
+        <MoneyStacksModel position={[0, 0.805, 0]} />
       </PedestalProp>
       <RopeBarrierProp posts={[[31.5, -1.3],[31.5, 1.3],[40.5, 1.3],[40.5, -1.3],[31.5, -1.3]]} />
       <WanderNPC startPos={[33, 0, 2]} id={4} exhibitPos={[36, 2.8, -4.88]} />
@@ -237,30 +237,26 @@ export default function Museum({ controlsRef, onSelect, onLockChange, onNearestC
       <DecoTree position={[68, 0, 3.5]} type="shrub" />
       <DecoTree position={[76, 0, 3.5]} type="shrub" />
       
-      {/* 4 Bệ trưng bày hiện vật — Lúa và Bánh răng đặt sát nhau tượng trưng cho Liên minh Công - Nông */}
-      <PedestalProp position={[68.4, 0, 0]} height={0.8} color="#8b2020" title="Cánh Đồng Lúa">
-        <WheatFieldModel position={[0, 0.855, 0]} />
-      </PedestalProp>
-      <PedestalProp position={[69.8, 0, 0]} height={0.8} color="#c4a84a" title="Bánh Răng Công Nghiệp">
-        <GearModel position={[0, 0.855, 0]} />
-      </PedestalProp>
-      <PedestalProp position={[72.6, 0, 0]} height={0.8} color="#1a2060" title="Sách Lý Luận & Tri Thức">
+      {/* 3 Bệ trưng bày hiện vật Phòng 4 */}
+      <PedestalProp position={[68.4, 0, 0]} height={0.8} color="#1a2060" title="Sách Lý Luận & Tri Thức">
         <BrownBookModel position={[0, 0.855, 0]} />
       </PedestalProp>
-      <PedestalProp position={[75.4, 0, 0]} height={0.8} color="#2e5a36" title="Quả Địa Cầu Hội Nhập">
+      <PedestalProp position={[71.8, 0, 0]} height={0.8} color="#c4a84a" title="Tăng Trưởng Kinh Tế & Công Hữu">
+        <GrowthCoinsModel position={[0, 0.855, 0]} />
+      </PedestalProp>
+      <PedestalProp position={[75.2, 0, 0]} height={0.8} color="#2e5a36" title="Quả Địa Cầu — Tư Tưởng & Văn Hóa">
         <GlobeModel position={[0, 0.855, 0]} />
       </PedestalProp>
 
       <RopeBarrierProp posts={[[67.2,-1.4],[67.2,1.4],[76.6,1.4],[76.6,-1.4],[67.2,-1.4]]} />
       
-      <SpotlightOnExhibit from={[68.4, 4.5, 0]} to={[68.4, 0, 0]} intensity={20} color="#ffcccc" />
-      <SpotlightOnExhibit from={[69.8, 4.5, 0]} to={[69.8, 0, 0]} intensity={20} color="#ffe8a0" />
-      <SpotlightOnExhibit from={[72.6, 4.5, 0]} to={[72.6, 0, 0]} intensity={20} color="#aaccff" />
-      <SpotlightOnExhibit from={[75.4, 4.5, 0]} to={[75.4, 0, 0]} intensity={20} color="#d0ffcc" />
+      <SpotlightOnExhibit from={[68.4, 4.5, 0]} to={[68.4, 0, 0]} intensity={20} color="#aaccff" />
+      <SpotlightOnExhibit from={[71.8, 4.5, 0]} to={[71.8, 0, 0]} intensity={20} color="#ffe8a0" />
+      <SpotlightOnExhibit from={[75.2, 4.5, 0]} to={[75.2, 0, 0]} intensity={20} color="#d0ffcc" />
 
-      <PointNPC position={[69.1, 0, 1.8]} lookAt={[69.1, 1.0, 0]} id={8} />
-      <PointNPC position={[72.6, 0, 1.8]} lookAt={[72.6, 1.0, 0]} id={9} />
-      <PointNPC position={[75.4, 0, 1.8]} lookAt={[75.4, 1.0, 0]} id={10} />
+      <PointNPC position={[68.4, 0, 1.8]} lookAt={[68.4, 1.0, 0]} id={8} />
+      <PointNPC position={[71.8, 0, 1.8]} lookAt={[71.8, 1.0, 0]} id={9} />
+      <PointNPC position={[75.2, 0, 1.8]} lookAt={[75.2, 1.0, 0]} id={10} />
 
       {/* ── PHÒNG KẾT ── */}
       <DecoTree position={[85, 0, 3.5]} type="palm" />

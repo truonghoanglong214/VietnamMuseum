@@ -136,17 +136,17 @@ export const rooms = [
 
 // Vùng đi được (collision), overlap nhẹ ở ngưỡng cửa để đi liền mạch.
 export const walkZones = [
-  { xMin: -5.8,  xMax: 5.9,  zMin: -4.8, zMax: 4.8 }, // lobby
-  { xMin: 5.8,   xMax: 12.2, zMin: -1.3, zMax: 1.3 }, // corr1
-  { xMin: 12.1,  xMax: 23.9, zMin: -4.8, zMax: 4.8 }, // room1
-  { xMin: 23.8,  xMax: 30.2, zMin: -1.3, zMax: 1.3 }, // corr2
-  { xMin: 30.1,  xMax: 41.9, zMin: -4.8, zMax: 4.8 }, // room2
-  { xMin: 41.8,  xMax: 48.2, zMin: -1.3, zMax: 1.3 }, // corr3
-  { xMin: 48.1,  xMax: 59.9, zMin: -4.8, zMax: 4.8 }, // room3
-  { xMin: 59.8,  xMax: 66.2, zMin: -1.3, zMax: 1.3 }, // corr4
-  { xMin: 66.1,  xMax: 77.9, zMin: -4.8, zMax: 4.8 }, // room4
-  { xMin: 77.8,  xMax: 84.2, zMin: -1.3, zMax: 1.3 }, // corr5
-  { xMin: 84.1,  xMax: 95.9, zMin: -4.8, zMax: 4.8 }, // roomket
+  { xMin: -5.8, xMax: 5.9, zMin: -4.8, zMax: 4.8 }, // lobby
+  { xMin: 5.8, xMax: 12.2, zMin: -1.3, zMax: 1.3 }, // corr1
+  { xMin: 12.1, xMax: 23.9, zMin: -4.8, zMax: 4.8 }, // room1
+  { xMin: 23.8, xMax: 30.2, zMin: -1.3, zMax: 1.3 }, // corr2
+  { xMin: 30.1, xMax: 41.9, zMin: -4.8, zMax: 4.8 }, // room2
+  { xMin: 41.8, xMax: 48.2, zMin: -1.3, zMax: 1.3 }, // corr3
+  { xMin: 48.1, xMax: 59.9, zMin: -4.8, zMax: 4.8 }, // room3
+  { xMin: 59.8, xMax: 66.2, zMin: -1.3, zMax: 1.3 }, // corr4
+  { xMin: 66.1, xMax: 77.9, zMin: -4.8, zMax: 4.8 }, // room4
+  { xMin: 77.8, xMax: 84.2, zMin: -1.3, zMax: 1.3 }, // corr5
+  { xMin: 84.1, xMax: 95.9, zMin: -4.8, zMax: 4.8 }, // roomket
 ]
 
 // Điểm xuất phát: đứng trong sảnh, nhìn về phía trước (hướng đông).
@@ -163,6 +163,7 @@ export const exhibits = [
     rotation: [0, 0, 0],
     size: [3.6, 3.2],
     frame: 'gold',
+    src: '/Pics/anh_sanh.png',
     title: 'Bản đồ hành trình tham quan',
     meta: 'Sảnh Đón Tiếp',
     body: 'Sơ đồ tổng thể của bảo tàng, dẫn dắt người xem qua 4 phòng chính từ cội nguồn đến tương lai của dân chủ.',
@@ -174,6 +175,7 @@ export const exhibits = [
     rotation: [0, 0, 0],
     size: [3.2, 3.6],
     frame: 'gold',
+    src: '/Pics/anh_phong1.jpeg',
     title: 'DEMOKRATOS — Bình minh của quyền lực',
     meta: 'Thế kỷ VII–VI TCN · "Demos" + "Kratos"',
     body: 'Thuật ngữ "Dân chủ" xuất hiện vào thế kỷ VII–VI trước Công nguyên tại Hy Lạp. "Demos" là nhân dân, "Kratos" là cai trị — nhân dân cai trị.',
@@ -185,6 +187,7 @@ export const exhibits = [
     rotation: [0, 0, 0],
     size: [3.6, 3.6],
     frame: 'bronze',
+    src: '/Pics/anh_phong2.png',
     title: 'Ba Nấc Thang Lịch Sử',
     meta: 'Chủ nô → Phong kiến → Tư sản',
     body: 'Ba giai đoạn tiến hóa của nền dân chủ nhân loại: từ dân chủ chủ nô Athens, qua vùng tối phong kiến, đến nền dân chủ tư sản với Cách mạng Pháp 1789.',
@@ -196,6 +199,7 @@ export const exhibits = [
     rotation: [0, 0, 0],
     size: [3.6, 3.8],
     frame: 'gold',
+    src: '/Pics/anh_phong3.jpg',
     title: 'Cách mạng Tháng Mười Nga — 1917',
     meta: 'Petrograd · 7/11/1917 · Bước ngoặt lịch sử',
     body: 'Cuộc cách mạng vô sản đầu tiên thành công trong lịch sử nhân loại. Giai cấp công nhân lần đầu tiên nắm quyền làm chủ đất nước, khai sinh nền dân chủ XHCN.',
@@ -207,6 +211,7 @@ export const exhibits = [
     rotation: [0, 0, 0],
     size: [3.2, 3.6],
     frame: 'gold',
+    src: '/Pics/anh_phong4.jpg',
     title: 'Ba Trụ Cột Dân Chủ XHCN',
     meta: 'Chính trị · Kinh tế · Tư tưởng - Văn hóa',
     body: 'Dân chủ XHCN được xây dựng trên 3 trụ cột: (1) Sự lãnh đạo của Đảng, (2) Công hữu tư liệu sản xuất, (3) Hệ tư tưởng Mác-Lênin.',
@@ -218,6 +223,7 @@ export const exhibits = [
     rotation: [0, -Math.PI / 2, 0],
     size: [4.0, 3.0],
     frame: 'gold',
+    src: '/Pics/phong-cuoi.png',
     title: '"Nước ta là nước dân chủ, địa vị cao nhất là dân, vì dân là chủ"',
     meta: 'Hồ Chí Minh · 1953',
     body: 'Câu nói bất hủ của Chủ tịch Hồ Chí Minh — kim chỉ nam xuyên suốt nền Dân chủ Xã hội chủ nghĩa Việt Nam.',
@@ -257,7 +263,7 @@ export const interactables = [
     id: 'lobby-map',
     type: 'image',
     position: [0, 2.8, -4.88],
-    imageSrc: null,
+    imageSrc: '/Pics/anh_sanh.png',
     title: 'Bản đồ hành trình tham quan',
     meta: 'Sảnh Đón Tiếp',
     description: 'Sơ đồ tổng thể của bảo tàng, dẫn dắt người xem qua 4 phòng chính từ cội nguồn đến tương lai của dân chủ.',
@@ -267,7 +273,7 @@ export const interactables = [
     id: 'demokratos',
     type: 'image',
     position: [18, 2.8, -4.88],
-    imageSrc: null,
+    imageSrc: '/Pics/anh_phong1.jpeg',
     title: 'DEMOKRATOS — Bình minh của quyền lực',
     meta: 'Thế kỷ VII–VI TCN · "Demos" + "Kratos"',
     description: 'Thuật ngữ "Dân chủ" xuất hiện vào thế kỷ VII–VI trước Công nguyên tại Hy Lạp. "Demos" là nhân dân, "Kratos" là cai trị — nhân dân cai trị.',
@@ -277,7 +283,7 @@ export const interactables = [
     id: 'ba-nac-thang',
     type: 'image',
     position: [36, 2.8, -4.88],
-    imageSrc: null,
+    imageSrc: '/Pics/anh_phong2.png',
     title: 'Ba Nấc Thang Lịch Sử',
     meta: 'Chủ nô → Phong kiến → Tư sản',
     description: 'Ba giai đoạn tiến hóa của nền dân chủ nhân loại: từ dân chủ chủ nô Athens, qua vùng tối phong kiến, đến nền dân chủ tư sản với Cách mạng Pháp 1789.',
@@ -287,7 +293,7 @@ export const interactables = [
     id: 'cach-mang-thang-muoi',
     type: 'image',
     position: [54, 2.8, -4.88],
-    imageSrc: null,
+    imageSrc: '/Pics/anh_phong3.jpg',
     title: 'Cách mạng Tháng Mười Nga — 1917',
     meta: 'Petrograd · 7/11/1917 · Bước ngoặt lịch sử',
     description: 'Cuộc cách mạng vô sản đầu tiên thành công trong lịch sử nhân loại. Giai cấp công nhân lần đầu tiên nắm quyền làm chủ đất nước, khai sinh nền dân chủ XHCN.',
@@ -297,7 +303,7 @@ export const interactables = [
     id: 'ba-tru-cot',
     type: 'image',
     position: [72, 2.8, -4.88],
-    imageSrc: null,
+    imageSrc: '/Pics/anh_phong4.jpg',
     title: 'Ba Trụ Cột Dân Chủ XHCN',
     meta: 'Chính trị · Kinh tế · Tư tưởng - Văn hóa',
     description: 'Dân chủ XHCN được xây dựng trên 3 trụ cột: (1) Sự lãnh đạo của Đảng, (2) Công hữu tư liệu sản xuất, (3) Hệ tư tưởng Mác-Lênin.',
@@ -307,7 +313,7 @@ export const interactables = [
     id: 'ho-chi-minh-quote',
     type: 'image',
     position: [95.88, 2.6, 0],
-    imageSrc: null,
+    imageSrc: '/Pics/phong-cuoi.png',
     title: '"Nước ta là nước dân chủ, địa vị cao nhất là dân, vì dân là chủ"',
     meta: 'Hồ Chí Minh · 1953',
     description: 'Câu nói bất hủ của Chủ tịch Hồ Chí Minh — kim chỉ nam xuyên suốt nền Dân chủ Xã hội chủ nghĩa Việt Nam.',
@@ -346,13 +352,13 @@ export const interactables = [
     interactRadius: 2.5,
   },
   {
-    id: 'socrates',
+    id: 'tribe-staff',
     type: 'model',
     position: [18, 0, 1.5],
-    modelUrl: '/Assets/socrates_.obj.glb',
-    title: 'Tượng Socrates',
-    meta: 'Phòng 1 · Triết gia Hy Lạp cổ đại',
-    description: 'Socrates (469–399 TCN) — cha đẻ của triết học phương Tây, người đặt nền móng cho tư tưởng dân chủ Athens.',
+    modelUrl: '/Assets/tribe_staff.glb',
+    title: 'Gậy Thù Trưởng — Dân Chủ Nguyên Thủy',
+    meta: 'Phòng 1 · Thời kỳ Cộng sản Nguyên thủy',
+    description: '“Dân chủ nguyên thủy” được xem là hình thức manh nha của nền dân chủ đầu tiên của nhân loại. — Ph.Ăng-ghen',
     interactRadius: 2.5,
   },
   {
@@ -372,7 +378,10 @@ export const interactables = [
     modelUrl: '/Assets/tuong_bac.glb',
     title: 'Tượng Chủ tịch Hồ Chí Minh',
     meta: 'Lãnh tụ vĩ đại của Dân tộc Việt Nam',
-    description: 'Bức tượng khắc họa chân dung Chủ tịch Hồ Chí Minh — Anh hùng giải phóng dân tộc, Danh nhân văn hóa thế giới, người đặt nền móng cho nền dân chủ nhân dân tại Việt Nam.',
+    description: `Bức tượng khắc họa chân dung Chủ tịch Hồ Chí Minh — Anh hùng giải phóng dân tộc, Danh nhân văn hóa thế giới, người đặt nền móng cho nền dân chủ nhân dân tại Việt Nam.
+
+- Chế độ mới (03/09/1945): Khai sinh chế độ dân chủ với bản chất cốt lõi là "dân làm chủ".
+- Bản chất chính quyền (1953): Khẳng định chính quyền thuộc về nhân dân, "nhân dân là ông chủ nắm chính quyền".`,
     interactRadius: 2.5,
   },
   {
@@ -386,33 +395,35 @@ export const interactables = [
     interactRadius: 2.5,
   },
   {
-    id: 'goddess-of-justice',
+    id: 'round-chain',
     type: 'model',
-    position: [36, 0, 0],
-    modelUrl: '/Assets/greek_goddess_of_justice_stl_for_plaabsresin.glb',
-    title: 'Tượng Nữ Thần Công Lý',
-    meta: 'Phòng 2 · Biểu tượng Pháp luật & Công lý',
-    description: 'Nữ thần Công lý (Themis/Justitia) tay cầm cân và thanh kiếm, biểu tượng cho sự công bằng và tính nghiêm minh của pháp luật.',
+    position: [33, 0, 0],
+    modelUrl: '/Assets/round_chain.glb',
+    title: 'Xiềng Xích Nô Lệ',
+    meta: 'Phòng 2 · Thời kỳ Dân chủ Chủ nô',
+    description: 'Xiềng xích tượng trưng cho sự bóc lột người nô lệ trong thời kỳ dân chủ chủ nô, thể hiện việc người nô lệ hoàn toàn không có bất kỳ quyền chính trị nào.',
     interactRadius: 2.5,
   },
   {
     id: 'crown',
     type: 'model',
-    position: [33, 0, 0],
+    position: [36, 0, 0],
     modelUrl: '/Assets/Crown.glb',
     title: 'Vương Miện Phong Kiến',
     meta: 'Phòng 2 · Biểu tượng Quyền lực Chế độ Phong kiến',
-    description: 'Vương miện tượng trưng cho quyền lực tối cao tập trung trong tay quân chủ thời kỳ phong kiến.',
+    description: 'Mô hình xã hội điển hình của thời kỳ phong kiến, mọi quyết định đều phụ thuộc vào ý chí của người đứng đầu là nhà vua.',
     interactRadius: 2.5,
   },
   {
-    id: 'open-book',
+    id: 'money-stacks',
     type: 'model',
     position: [39, 0, 0],
-    modelUrl: '/Assets/Open Book.glb',
-    title: 'Bảng Quyền Con Người',
-    meta: 'Phòng 2 · Tuyên ngôn Quyền con người và Quyền công dân (1789)',
-    description: 'Bản Tuyên ngôn Quyền con người và Quyền công dân năm 1789 của Cách mạng Pháp, khẳng định các quyền tự do, bình đẳng cơ bản của con người và nền tảng dân chủ tư sản.',
+    modelUrl: '/Assets/money_stacks.glb',
+    title: 'Cập Tiền Tư Sản (Tư Liệu Sản Xuất)',
+    meta: 'Phòng 2 · Nền Dân chủ Tư sản',
+    description: `Biểu tượng cho giai cấp tư sản và chế độ tư hữu tư liệu sản xuất.
+
+Theo lý luận Mác - Lênin, mặc dù nền dân chủ tư sản mở rộng nhiều quyền hơn trước, nhưng kinh tế vẫn dựa trên chế độ sở hữu tư nhân. Do đó, quyền lực kinh tế và lợi ích xã hội cốt lõi vẫn chủ yếu thuộc về giai cấp tư sản.`,
     interactRadius: 2.5,
   },
   {
@@ -426,43 +437,35 @@ export const interactables = [
     interactRadius: 2.5,
   },
   {
-    id: 'wheat-field',
-    type: 'model',
-    position: [68.4, 0, 0],
-    modelUrl: '/Assets/Field of wheat.glb',
-    title: 'Cánh Đồng Lúa',
-    meta: 'Phòng 4 · Biểu tượng Nông nghiệp & Giai cấp Nông dân',
-    description: 'Bông lúa vàng tượng trưng cho nền kinh tế nông nghiệp và giai cấp nông dân trong khối liên minh công - nông.',
-    interactRadius: 2.5,
-  },
-  {
-    id: 'gear',
-    type: 'model',
-    position: [69.8, 0, 0],
-    modelUrl: '/Assets/Gear.glb',
-    title: 'Bánh Răng Công Nghiệp',
-    meta: 'Phòng 4 · Biểu tượng Công nghiệp & Giai cấp Công nhân',
-    description: 'Bánh răng công nghiệp đại diện cho sự phát triển sản xuất hiện đại và giai cấp công nhân tiên phong.',
-    interactRadius: 2.5,
-  },
-  {
     id: 'brown-book',
     type: 'model',
-    position: [72.6, 0, 0],
+    position: [68.4, 0, 0],
     modelUrl: '/Assets/brown book.glb',
     title: 'Sách Lý Luận & Tri Thức',
-    meta: 'Phòng 4 · Nền tảng Lý luận Mác-Lênin',
-    description: 'Cuốn sách lý luận đại diện cho hệ tư tưởng Mác-Lênin và tri thức khoa học định hướng phát triển đất nước.',
+    meta: 'Phòng 4 · Phương diện Chính trị Dân chủ XHCN',
+    description: 'Về phương diện chính trị, nền dân chủ xã hội chủ nghĩa được đặt dưới sự lãnh đạo của Đảng Cộng sản – đội tiên phong của giai cấp công nhân. Đồng thời, nhân dân có quyền tham gia rộng rãi vào công việc quản lý nhà nước thông qua đại biểu đại diện hoặc trực tiếp đóng góp ý kiến.',
+    interactRadius: 2.5,
+  },
+  {
+    id: 'growth-coins',
+    type: 'model',
+    position: [71.8, 0, 0],
+    modelUrl: '/Assets/growth_of_coins_money_and_wealth.glb',
+    title: 'Tăng Trưởng Kinh Tế & Công Hữu',
+    meta: 'Phòng 4 · Phương diện Kinh tế Dân chủ XHCN',
+    description: `Biểu tượng cho kinh tế, sự phát triển kinh tế và là nền móng vững chắc của xã hội.
+
+Nền dân chủ xã hội chủ nghĩa được xây dựng trên cơ sở chế độ công hữu đối với các tư liệu sản xuất chủ yếu, đồng thời thực hiện phân phối lợi ích chủ yếu theo kết quả lao động. Mục tiêu là giải phóng sức sản xuất, thúc đẩy nền kinh tế phát triển và đáp ứng ngày càng tốt hơn nhu cầu vật chất cũng như tinh thần của nhân dân.`,
     interactRadius: 2.5,
   },
   {
     id: 'globe',
     type: 'model',
-    position: [75.4, 0, 0],
+    position: [75.2, 0, 0],
     modelUrl: '/Assets/Globe.glb',
-    title: 'Quả Địa Cầu Hội Nhập',
-    meta: 'Phòng 4 · Bối cảnh Hội nhập Quốc tế',
-    description: 'Quả địa cầu tượng trưng cho tinh thần hợp tác, giao lưu và hội nhập quốc tế của nền dân chủ XHCN.',
+    title: 'Quả Địa Cầu — Tư Tưởng & Văn Hóa',
+    meta: 'Phòng 4 · Bản chất Tư tưởng, Văn hóa & Xã hội',
+    description: 'Nền dân chủ xã hội chủ nghĩa lấy chủ nghĩa Mác – Lênin làm nền tảng tư tưởng, đồng thời kế thừa những giá trị truyền thống của dân tộc và tiếp thu tinh hoa văn hóa của nhân loại. Mục tiêu là kết hợp hài hòa giữa lợi ích cá nhân, lợi ích tập thể và lợi ích của toàn xã hội.',
     interactRadius: 2.5,
   },
   {

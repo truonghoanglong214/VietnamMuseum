@@ -75,6 +75,10 @@ export function SocratesModel(props) {
   return <GLTFAsset url="/Assets/socrates_.obj.glb" targetSize={0.7} {...props} />
 }
 
+export function TribeStaffModel(props) {
+  return <GLTFAsset url="/Assets/tribe_staff.glb" targetSize={1.0} {...props} />
+}
+
 export function SpartanHelmetModel(props) {
   return <GLTFAsset url="/Assets/pbr_spartan_helmet.glb" targetSize={0.4} {...props} />
 }
@@ -96,12 +100,20 @@ export function GoddessOfJusticeModel(props) {
   return <GLTFAsset url="/Assets/greek_goddess_of_justice_stl_for_plaabsresin.glb" targetSize={0.75} {...props} />
 }
 
+export function RoundChainModel(props) {
+  return <GLTFAsset url="/Assets/round_chain.glb" targetSize={0.5} {...props} />
+}
+
 export function CrownModel(props) {
   return <GLTFAsset url="/Assets/Crown.glb" targetSize={0.35} {...props} />
 }
 
 export function OpenBookModel(props) {
   return <GLTFAsset url="/Assets/Open Book.glb" targetSize={0.45} {...props} />
+}
+
+export function MoneyStacksModel(props) {
+  return <GLTFAsset url="/Assets/money_stacks.glb" targetSize={0.4} {...props} />
 }
 
 // Phòng 3
@@ -194,6 +206,10 @@ export function WheatFieldModel(props) {
 
 export function GearModel(props) {
   return <GLTFAsset url="/Assets/Gear.glb" targetSize={0.65} {...props} />
+}
+
+export function GrowthCoinsModel(props) {
+  return <GLTFAsset url="/Assets/growth_of_coins_money_and_wealth.glb" targetSize={0.7} {...props} />
 }
 
 export function BrownBookModel(props) {
