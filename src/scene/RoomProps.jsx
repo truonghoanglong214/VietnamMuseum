@@ -30,7 +30,7 @@ export function BenchProp({ position = [0, 0, 0], rotation = [0, Math.PI, 0] }) 
   )
 }
 
-function PedestalPlaque({ title, yPos }) {
+function PedestalPlaque({ title, yPos, side = 'front' }) {
   const tex = useMemo(() => {
     if (!title) return null
     const W = 512, H = 128
@@ -70,8 +70,9 @@ function PedestalPlaque({ title, yPos }) {
 
   if (!tex) return null
 
+  const isBack = side === 'back'
   return (
-    <mesh position={[0, yPos, 0.355]} castShadow>
+    <mesh position={[0, yPos, isBack ? -0.355 : 0.355]} rotation={[0, isBack ? Math.PI : 0, 0]} castShadow>
       <boxGeometry args={[0.52, 0.13, 0.012]} />
       <meshStandardMaterial map={tex} roughness={0.35} metalness={0.6} />
     </mesh>
@@ -79,7 +80,7 @@ function PedestalPlaque({ title, yPos }) {
 }
 
 // ── Bệ trưng bày ─────────────────────────────────────────────
-export function PedestalProp({ position = [0, 0, 0], height = 0.8, color = '#e0dbd0', title = null, children }) {
+export function PedestalProp({ position = [0, 0, 0], height = 0.8, color = '#e0dbd0', title = null, plaqueSide = 'front', children }) {
   return (
     <group position={position}>
       {/* Thân bệ */}
@@ -93,7 +94,7 @@ export function PedestalProp({ position = [0, 0, 0], height = 0.8, color = '#e0d
         <meshStandardMaterial color={color} roughness={0.6} metalness={0.1} />
       </mesh>
       {/* Tấm bảng tên hiện vật */}
-      {title && <PedestalPlaque title={title} yPos={height * 0.65} />}
+      {title && <PedestalPlaque title={title} yPos={height * 0.65} side={plaqueSide} />}
       {children}
     </group>
   )

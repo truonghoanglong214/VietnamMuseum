@@ -5,6 +5,7 @@ import Museum from './scene/Museum.jsx'
 import InfoPanel from './ui/InfoPanel.jsx'
 import InteractHint from './ui/InteractHint.jsx'
 import ExhibitPopup from './ui/ExhibitPopup.jsx'
+import RoomHeader from './ui/RoomHeader.jsx'
 import { spawn } from './museumData.js'
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
   const [selected, setSelected] = useState(null)
   const [nearestInteractable, setNearestInteractable] = useState(null)
   const [viewingExhibit, setViewingExhibit] = useState(null)
+  const [currentRoomTitle, setCurrentRoomTitle] = useState('Sảnh Đón Tiếp — Welcome Lobby')
 
   const lock = useCallback(() => {
     setStarted(true)
@@ -58,9 +60,14 @@ export default function App() {
             onNearestChange={setNearestInteractable}
             nearestInteractable={nearestInteractable}
             onInteract={onInteract}
+            onRoomChange={setCurrentRoomTitle}
           />
         </Suspense>
       </Canvas>
+
+      {!showIntro && !viewingExhibit && (
+        <RoomHeader title={currentRoomTitle} />
+      )}
 
       {locked && !viewingExhibit && <div className="crosshair" />}
 

@@ -79,8 +79,8 @@ export function SpartanHelmetModel(props) {
   return <GLTFAsset url="/Assets/pbr_spartan_helmet.glb" targetSize={0.4} {...props} />
 }
 
-export function SpartanShieldModel(props) {
-  return <GLTFAsset url="/Assets/pbr_spartan_shield.glb" targetSize={0.75} {...props} />
+export function TuongBacModel(props) {
+  return <GLTFAsset url="/Assets/tuong_bac.glb" targetSize={0.75} {...props} />
 }
 
 export function AncientScrollModel(props) {

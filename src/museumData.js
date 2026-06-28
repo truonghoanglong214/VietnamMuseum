@@ -366,13 +366,13 @@ export const interactables = [
     interactRadius: 2.5,
   },
   {
-    id: 'spartan-shield',
+    id: 'tuong-bac',
     type: 'model',
     position: [20.5, 0, -1.8],
-    modelUrl: '/Assets/pbr_spartan_shield.glb',
-    title: 'Khiên Chiến Binh Spartan',
-    meta: 'Phòng 1 · Vũ khí và Giáp trụ Hy Lạp',
-    description: 'Khiên Spartan (Hoplon) biểu tượng cho sự bảo vệ cộng đồng và tính đoàn kết trong hàng ngũ chiến đấu Falanga.',
+    modelUrl: '/Assets/tuong_bac.glb',
+    title: 'Tượng Chủ tịch Hồ Chí Minh',
+    meta: 'Lãnh tụ vĩ đại của Dân tộc Việt Nam',
+    description: 'Bức tượng khắc họa chân dung Chủ tịch Hồ Chí Minh — Anh hùng giải phóng dân tộc, Danh nhân văn hóa thế giới, người đặt nền móng cho nền dân chủ nhân dân tại Việt Nam.',
     interactRadius: 2.5,
   },
   {

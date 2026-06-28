@@ -15,7 +15,7 @@ import {
 import WanderNPC, { PointNPC } from './NPC.jsx'
 import {
   TrongDongModel, ReceptionDeskModel, SocratesModel,
-  SpartanHelmetModel, SpartanShieldModel, AncientScrollModel,
+  SpartanHelmetModel, TuongBacModel, AncientScrollModel,
   GreekColumnModel, GoddessOfJusticeModel, CrownModel, OpenBookModel,
   HammerSickleModel, TorchModel, WheatFieldModel,
   GearModel, BrownBookModel, GlobeModel,
@@ -67,10 +67,10 @@ function Fixture({ position, intensity = 20, roomHeight = 5 }) {
   )
 }
 
-export default function Museum({ controlsRef, onSelect, onLockChange, onNearestChange, nearestInteractable, onInteract }) {
+export default function Museum({ controlsRef, onSelect, onLockChange, onNearestChange, nearestInteractable, onInteract, onRoomChange }) {
   return (
     <>
-      <InteractSystem onNearestChange={onNearestChange} />
+      <InteractSystem onNearestChange={onNearestChange} onRoomChange={onRoomChange} />
       <color attach="background" args={['#0c0a07']} />
       {/* Fog nhẹ — tầm nhìn ~80m để còn thấy vài phòng phía trước */}
       <fog attach="fog" args={['#0c0a07', 16, 95]} />
@@ -180,16 +180,16 @@ export default function Museum({ controlsRef, onSelect, onLockChange, onNearestC
       <DecoTree position={[14.5, 0, -3]} type="shrub" />
       <ColumnProp position={[14, 0, 2]} height={3.0} />
       <ColumnProp position={[22, 0, 2]} height={3.0} />
-      <PedestalProp position={[18, 0, 1.5]} height={0.9} color="#e8dfc0" title="Tượng Socrates">
-        <SocratesModel position={[0, 0.955, 0]} />
+      <PedestalProp position={[18, 0, 1.5]} height={0.9} color="#e8dfc0" title="Tượng Socrates" plaqueSide="back">
+        <SocratesModel position={[0, 0.955, 0]} rotation={[0, -Math.PI / 2, 0]} />
       </PedestalProp>
       <BenchProp position={[18, 0, 3.5]} />
       {/* GLTF Assets Phòng 1 — Đặt các hiện vật lên bệ trưng bày */}
       <PedestalProp position={[15.5, 0, -1.8]} height={0.8} color="#e8dfc0" title="Nón Chiến Binh Spartan">
         <SpartanHelmetModel position={[0, 0.855, 0]} rotation={[0, Math.PI / 4, 0]} />
       </PedestalProp>
-      <PedestalProp position={[20.5, 0, -1.8]} height={0.8} color="#e8dfc0" title="Khiên Chiến Binh Spartan">
-        <SpartanShieldModel position={[0, 0.855, 0]} rotation={[0.2, -Math.PI / 6, 0]} />
+      <PedestalProp position={[20.5, 0, -1.8]} height={0.8} color="#e8dfc0" title="Tượng Chủ tịch Hồ Chí Minh">
+        <TuongBacModel position={[0, 0.855, 0]} rotation={[0, Math.PI / 2, 0]} />
       </PedestalProp>
       <PedestalProp position={[18, 0, -2.0]} height={0.7} color="#d4c9a0" title="Cuộn Sách Cổ Hy Lạp">
         <AncientScrollModel position={[0, 0.755, 0]} />
