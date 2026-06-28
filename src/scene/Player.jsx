@@ -14,7 +14,7 @@ function inWalk(x, z) {
   return false
 }
 
-export default function Player({ controlsRef, onLockChange, nearestInteractable, onInteract }) {
+export default function Player({ controlsRef, onLockChange, nearestInteractable, onInteract, isPopupOpen }) {
   const { camera } = useThree()
   const keys = useRef({})
   const locked = useRef(false)
@@ -60,11 +60,19 @@ export default function Player({ controlsRef, onLockChange, nearestInteractable,
     return () => document.removeEventListener('pointerlockchange', onChange)
   }, [onLockChange])
 
+  useEffect(() => {
+    if (isPopupOpen) {
+      if (document.pointerLockElement != null) {
+        document.exitPointerLock?.()
+      }
+    }
+  }, [isPopupOpen])
+
   const front = useRef(new THREE.Vector3())
   const right = useRef(new THREE.Vector3())
 
   useFrame((_, dt) => {
-    if (!locked.current) return
+    if (isPopupOpen || !locked.current) return
     const k = keys.current
     const fwd = (k['KeyW'] || k['ArrowUp'] ? 1 : 0) - (k['KeyS'] || k['ArrowDown'] ? 1 : 0)
     const str = (k['KeyD'] || k['ArrowRight'] ? 1 : 0) - (k['KeyA'] || k['ArrowLeft'] ? 1 : 0)
@@ -90,5 +98,6 @@ export default function Player({ controlsRef, onLockChange, nearestInteractable,
     camera.position.y = EYE
   })
 
+  if (isPopupOpen) return null
   return <PointerLockControls ref={controlsRef} />
 }

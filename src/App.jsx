@@ -29,7 +29,7 @@ export default function App() {
 
   const onClose = useCallback(() => {
     setSelected(null)
-    controlsRef.current?.lock?.()
+    setTimeout(() => controlsRef.current?.lock?.(), 50)
   }, [])
 
   const onInteract = useCallback((item) => {
@@ -39,7 +39,7 @@ export default function App() {
 
   const closeExhibitPopup = useCallback(() => {
     setViewingExhibit(null)
-    controlsRef.current?.lock?.()
+    setTimeout(() => controlsRef.current?.lock?.(), 50)
   }, [])
 
   const showIntro = !locked && !selected && !viewingExhibit
@@ -61,6 +61,7 @@ export default function App() {
             nearestInteractable={nearestInteractable}
             onInteract={onInteract}
             onRoomChange={setCurrentRoomTitle}
+            isPopupOpen={!!viewingExhibit || !!selected}
           />
         </Suspense>
       </Canvas>

@@ -67,7 +67,7 @@ function Fixture({ position, intensity = 20, roomHeight = 5 }) {
   )
 }
 
-export default function Museum({ controlsRef, onSelect, onLockChange, onNearestChange, nearestInteractable, onInteract, onRoomChange }) {
+export default function Museum({ controlsRef, onSelect, onLockChange, onNearestChange, nearestInteractable, onInteract, onRoomChange, isPopupOpen }) {
   return (
     <>
       <InteractSystem onNearestChange={onNearestChange} onRoomChange={onRoomChange} />
@@ -221,8 +221,14 @@ export default function Museum({ controlsRef, onSelect, onLockChange, onNearestC
         <boxGeometry args={[6, 0.22, 0.025]} />
         <meshStandardMaterial color="#8b0000" roughness={0.9} />
       </mesh>
-      <PedestalProp position={[54, 0, 1.5]} height={0.8} color="#8b2020" title="Biểu Tượng Búa Liềm">
+      <PedestalProp position={[51.5, 0, 1.5]} height={0.8} color="#8b2020" title="Cánh Đồng Lúa" plaqueSide="back">
+        <WheatFieldModel position={[0, 0.855, 0]} />
+      </PedestalProp>
+      <PedestalProp position={[54, 0, 1.5]} height={0.8} color="#8b2020" title="Biểu Tượng Búa Liềm — Sự Phát Triển Trường Tồn" plaqueSide="back">
         <HammerSickleModel position={[0, 0.855, 0]} />
+      </PedestalProp>
+      <PedestalProp position={[56.5, 0, 1.5]} height={0.8} color="#c4a84a" title="Bánh Răng Công Nghiệp" plaqueSide="back">
+        <GearModel position={[0, 0.855, 0]} />
       </PedestalProp>
       <BenchProp position={[51, 0, 3]} />
       <BenchProp position={[57, 0, 3]} />
@@ -281,6 +287,7 @@ export default function Museum({ controlsRef, onSelect, onLockChange, onNearestC
         onLockChange={onLockChange}
         nearestInteractable={nearestInteractable}
         onInteract={onInteract}
+        isPopupOpen={isPopupOpen}
       />
 
       {/* Hậu kỳ: đổ bóng góc, nở sáng nhẹ, làm tối viền */}

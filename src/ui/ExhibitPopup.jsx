@@ -104,7 +104,11 @@ export default function ExhibitPopup({ item, onClose }) {
   if (!item) return null
 
   return (
-    <div className="exhibit-popup">
+    <div
+      className="exhibit-popup"
+      onPointerDown={(e) => e.stopPropagation()}
+      onClick={(e) => e.stopPropagation()}
+    >
       <div className={`exhibit-popup__container exhibit-popup__container--${item.type}`}>
         <button className="exhibit-popup__close" onClick={onClose} title="Đóng (Escape)">
           ✕
