@@ -6,6 +6,7 @@ import InfoPanel from './ui/InfoPanel.jsx'
 import InteractHint from './ui/InteractHint.jsx'
 import ExhibitPopup from './ui/ExhibitPopup.jsx'
 import RoomHeader from './ui/RoomHeader.jsx'
+import MusicPlayer from './ui/MusicPlayer.jsx'
 import { spawn } from './museumData.js'
 
 export default function App() {
@@ -69,6 +70,8 @@ export default function App() {
       {!showIntro && !viewingExhibit && (
         <RoomHeader title={currentRoomTitle} />
       )}
+
+      <MusicPlayer started={started} />
 
       {locked && !viewingExhibit && <div className="crosshair" />}
 
