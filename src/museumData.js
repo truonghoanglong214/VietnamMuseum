@@ -252,6 +252,30 @@ export const exhibits = [
     meta: 'Lãnh tụ vĩ đại · Khai sinh nước VNDCCH 1945',
     body: 'Chủ tịch Hồ Chí Minh đã vận dụng sáng tạo chủ nghĩa Mác-Lênin vào thực tiễn Việt Nam, khẳng định "Bao nhiêu lợi ích đều vì dân. Bao nhiêu quyền hạn đều của dân".',
   },
+  // Phòng 4 (Bổ sung) — tường Nam, x=72, z=4.88
+  {
+    type: 'image',
+    position: [72, 2.8, 4.88],
+    rotation: [0, Math.PI, 0],
+    size: [3.6, 2.6],
+    frame: 'gold',
+    src: '/Pics/anh_cach_mang_thang_8.jpg',
+    title: 'Cách Mạng Tháng Tám — 1945',
+    meta: 'Việt Nam · 19/08/1945 · Khai sinh nước VNDCCH',
+    body: 'Cuộc Tổng khởi nghĩa tháng Tám năm 1945 dưới sự lãnh đạo của Đảng và Chủ tịch Hồ Chí Minh đã đập tan ách thống trị của thực dân, phong kiến, lập nên nước Việt Nam Dân chủ Cộng hòa — đưa nhân dân Việt Nam trở thành người làm chủ đất nước, khẳng định bản chất dân chủ xã hội chủ nghĩa.',
+  },
+  // Phòng Kết (Bổ sung) — tường Nam, x=90, z=4.88
+  {
+    type: 'image',
+    position: [90, 2.8, 4.88],
+    rotation: [0, Math.PI, 0],
+    size: [3.6, 2.6],
+    frame: 'gold',
+    src: '/Pics/anh_chien_thang_cach_mang.jpg',
+    title: 'Chiến Thắng Cách Mạng & Khát Vọng Dân Chủ',
+    meta: 'Di sản Lịch sử · Khát vọng Dân chủ & Độc lập',
+    body: 'Chiến thắng lịch sử của cách mạng Việt Nam không chỉ khẳng định ý chí quật cường, tinh thần đại đoàn kết toàn dân tộc mà còn là minh chứng sống động cho bản chất của nền dân chủ xã hội chủ nghĩa — nền dân chủ thực sự vì độc lập tự do của Tổ quốc, vì hạnh phúc của nhân dân.',
+  },
 ]
 
 // =============================================================
@@ -337,6 +361,26 @@ export const interactables = [
     title: 'Chân dung Chủ tịch Hồ Chí Minh',
     meta: 'Lãnh tụ vĩ đại · Khai sinh nước VNDCCH 1945',
     description: 'Chủ tịch Hồ Chí Minh đã vận dụng sáng tạo chủ nghĩa Mác-Lênin vào thực tiễn Việt Nam, khẳng định "Bao nhiêu lợi ích đều vì dân. Bao nhiêu quyền hạn đều của dân".',
+    interactRadius: 3.5,
+  },
+  {
+    id: 'cach-mang-thang-tam',
+    type: 'image',
+    position: [72, 2.8, 4.88],
+    imageSrc: '/Pics/anh_cach_mang_thang_8.jpg',
+    title: 'Cách Mạng Tháng Tám — 1945',
+    meta: 'Việt Nam · 19/08/1945 · Khai sinh nước VNDCCH',
+    description: 'Cuộc Tổng khởi nghĩa tháng Tám năm 1945 dưới sự lãnh đạo của Đảng và Chủ tịch Hồ Chí Minh đã đập tan ách thống trị của thực dân, phong kiến, lập nên nước Việt Nam Dân chủ Cộng hòa — đưa nhân dân Việt Nam trở thành người làm chủ đất nước, khẳng định bản chất dân chủ xã hội chủ nghĩa.',
+    interactRadius: 3.5,
+  },
+  {
+    id: 'chien-thang-cach-mang',
+    type: 'image',
+    position: [90, 2.8, 4.88],
+    imageSrc: '/Pics/anh_chien_thang_cach_mang.jpg',
+    title: 'Chiến Thắng Cách Mạng & Khát Vọng Dân Chủ',
+    meta: 'Di sản Lịch sử · Khát vọng Dân chủ & Độc lập',
+    description: 'Chiến thắng lịch sử của cách mạng Việt Nam không chỉ khẳng định ý chí quật cường, tinh thần đại đoàn kết toàn dân tộc mà còn là minh chứng sống động cho bản chất của nền dân chủ xã hội chủ nghĩa — nền dân chủ thực sự vì độc lập tự do của Tổ quốc, vì hạnh phúc của nhân dân.',
     interactRadius: 3.5,
   },
 

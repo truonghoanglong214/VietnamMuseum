@@ -94,12 +94,14 @@ export default function Museum({ controlsRef, onSelect, onLockChange, onNearestC
       <SpotlightOnExhibit from={[54, 4.5, -2.5]} to={[54, 2.8, -4.88]} intensity={35} color="#ffd0b0" />
       <SpotlightOnExhibit from={[54, 4.5, 2.5]} to={[54, 2.8, 4.88]} intensity={32} color="#ffe0c0" />
 
-      {/* Phòng 4 */}
+      {/* Phòng 4 (Tranh Bắc & Nam) */}
       <SpotlightOnExhibit from={[72, 4.5, -2.5]} to={[72, 2.8, -4.88]} intensity={30} />
+      <SpotlightOnExhibit from={[72, 4.5, 2.5]} to={[72, 2.8, 4.88]} intensity={32} color="#ffe0c0" />
 
-      {/* Phòng Kết (Tranh Đông & Bắc) */}
+      {/* Phòng Kết (Tranh Đông, Bắc & Nam) */}
       <SpotlightOnExhibit from={[91, 4.5, 0.5]} to={[95.88, 2.6, 0]} intensity={32} />
       <SpotlightOnExhibit from={[90, 4.5, -2.5]} to={[90, 2.8, -4.88]} intensity={32} color="#fff0d0" />
+      <SpotlightOnExhibit from={[90, 4.5, 2.5]} to={[90, 2.8, 4.88]} intensity={32} color="#ffe0c0" />
 
       {/* Lightformer phản chiếu môi trường (không cần HDRI) */}
       <Environment resolution={256} frames={1}>
